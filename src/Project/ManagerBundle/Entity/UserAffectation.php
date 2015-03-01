@@ -80,4 +80,32 @@ class UserAffectation
     {
         return $this->project;
     }
+    /**
+     * @var \Application\Sonata\UserBundle\Entity\Role
+     */
+    private $role;
+
+
+    /**
+     * Set role
+     *
+     * @param \Application\Sonata\UserBundle\Entity\Role $role
+     * @return UserAffectation
+     */
+    public function setRole(\Application\Sonata\UserBundle\Entity\Role $role = null)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return \Application\Sonata\UserBundle\Entity\Role 
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
 }

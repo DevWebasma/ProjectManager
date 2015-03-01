@@ -18,4 +18,14 @@ Project\ManagerBundle\Entity\UserAffectation:
                joinColumn:
                   name: project_id
                   referencedColumnName: id
+
+    oneToOne:
+           role:
+               targetEntity: Application\Sonata\UserBundle\Entity\Role
+               cascade: ["all"]
+               joinColumn:
+                  name: role_id
+                  referencedColumnName: id
+                  fetch: EAGER
+
     lifecycleCallbacks: {  }
