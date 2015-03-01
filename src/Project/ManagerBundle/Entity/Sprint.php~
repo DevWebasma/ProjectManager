@@ -5,9 +5,9 @@ namespace Project\ManagerBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Task
+ * Sprint
  */
-class Task
+class Sprint
 {
     /**
      * @var integer
@@ -20,9 +20,14 @@ class Task
     private $name;
 
     /**
-     * @var string
+     * @var \DateTime
      */
-    private $description;
+    private $createdAt;
+
+    /**
+     * @var \DateTime
+     */
+    private $finishedAt;
 
 
     /**
@@ -39,7 +44,7 @@ class Task
      * Set name
      *
      * @param string $name
-     * @return Task
+     * @return Sprint
      */
     public function setName($name)
     {
@@ -59,58 +64,48 @@ class Task
     }
 
     /**
-     * Set description
+     * Set createdAt
      *
-     * @param string $description
-     * @return Task
+     * @param \DateTime $createdAt
+     * @return Sprint
      */
-    public function setDescription($description)
+    public function setCreatedAt($createdAt)
     {
-        $this->description = $description;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     /**
-     * Get description
+     * Get createdAt
      *
-     * @return string 
+     * @return \DateTime
      */
-    public function getDescription()
+    public function getCreatedAt()
     {
-        return $this->description;
-    }
-    /**
-     * @return string
-     */
-    public function __toString()
-    {
-        return (string)$this->getName();
+        return $this->createdAt;
     }
 
-    private $type;
-
-
     /**
-     * Set type
+     * Set finishedAt
      *
-     * @param string $type
-     * @return Task
+     * @param \DateTime $finishedAt
+     * @return Sprint
      */
-    public function setType($type)
+    public function setFinishedAt($finishedAt)
     {
-        $this->type = $type;
+        $this->finishedAt = $finishedAt;
 
         return $this;
     }
 
     /**
-     * Get type
+     * Get finishedAt
      *
-     * @return string 
+     * @return \DateTime
      */
-    public function getType()
+    public function getFinishedAt()
     {
-        return $this->type;
+        return $this->finishedAt;
     }
 }

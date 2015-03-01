@@ -15,24 +15,8 @@ Project\ManagerBundle\Entity\Project:
             type: text
 
     oneToMany:
-        tasks:
-            targetEntity: Task
-            mappedBy: project
-
-    oneToMany:
         affectations:
             targetEntity: UserAffectation
             mappedBy: project
-
-
-    oneToOne:
-        user:
-            targetEntity: Application\Sonata\UserBundle\Entity\User
-            cascade: ["all"]
-            joinColumn:
-               name: user_id
-               referencedColumnName: id
-               fetch: EAGER
-
 
     lifecycleCallbacks: {  }

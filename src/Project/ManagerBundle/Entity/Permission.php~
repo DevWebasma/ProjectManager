@@ -5,9 +5,9 @@ namespace Project\ManagerBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Task
+ * Permission
  */
-class Task
+class Permission
 {
     /**
      * @var integer
@@ -39,7 +39,7 @@ class Task
      * Set name
      *
      * @param string $name
-     * @return Task
+     * @return Permission
      */
     public function setName($name)
     {
@@ -62,7 +62,7 @@ class Task
      * Set description
      *
      * @param string $description
-     * @return Task
+     * @return Permission
      */
     public function setDescription($description)
     {
@@ -79,38 +79,5 @@ class Task
     public function getDescription()
     {
         return $this->description;
-    }
-    /**
-     * @return string
-     */
-    public function __toString()
-    {
-        return (string)$this->getName();
-    }
-
-    private $type;
-
-
-    /**
-     * Set type
-     *
-     * @param string $type
-     * @return Task
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return string 
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 }

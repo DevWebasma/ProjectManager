@@ -5,9 +5,9 @@ namespace Project\ManagerBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Project
+ * Role
  */
-class Project
+class Role
 {
     /**
      * @var integer
@@ -39,7 +39,7 @@ class Project
      * Set name
      *
      * @param string $name
-     * @return Project
+     * @return Role
      */
     public function setName($name)
     {
@@ -62,7 +62,7 @@ class Project
      * Set description
      *
      * @param string $description
-     * @return Project
+     * @return Role
      */
     public function setDescription($description)
     {
@@ -80,54 +80,34 @@ class Project
     {
         return $this->description;
     }
-
-
     /**
-     * Constructor
+     * @var \Application\Sonata\UserBundle\Entity\User
      */
-    public function __construct()
-    {
-        $this->tasks = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
+    private $user;
 
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $affectations;
-
-
-    /**
-     * Add affectations
+     * Set user
      *
-     * @param \Project\ManagerBundle\Entity\UserAffectation $affectations
-     * @return Project
+     * @param \Application\Sonata\UserBundle\Entity\User $user
+     * @return Role
      */
-    public function addAffectation(\Project\ManagerBundle\Entity\UserAffectation $affectations)
+    public function setUser(\Application\Sonata\UserBundle\Entity\User $user = null)
     {
-        $this->affectations[] = $affectations;
+        $this->user = $user;
 
         return $this;
     }
 
     /**
-     * Remove affectations
+     * Get user
      *
-     * @param \Project\ManagerBundle\Entity\UserAffectation $affectations
+     * @return \Application\Sonata\UserBundle\Entity\User 
      */
-    public function removeAffectation(\Project\ManagerBundle\Entity\UserAffectation $affectations)
+    public function getUser()
     {
-        $this->affectations->removeElement($affectations);
+        return $this->user;
     }
 
-    /**
-     * Get affectations
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getAffectations()
-    {
-        return $this->affectations;
-    }
+
 }
