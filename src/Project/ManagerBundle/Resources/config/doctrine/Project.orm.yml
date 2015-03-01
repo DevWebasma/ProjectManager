@@ -1,0 +1,38 @@
+Project\ManagerBundle\Entity\Project:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: text
+
+    oneToMany:
+        tasks:
+            targetEntity: Task
+            mappedBy: project
+
+    oneToMany:
+        affectations:
+            targetEntity: UserAffectation
+            mappedBy: project
+
+
+    oneToOne:
+        user:
+            targetEntity: Application\Sonata\UserBundle\Entity\User
+            cascade: ["all"]
+            joinColumn:
+               name: user_id
+               referencedColumnName: id
+               fetch: EAGER
+
+
+    lifecycleCallbacks: {  }

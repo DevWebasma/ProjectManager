@@ -1,0 +1,45 @@
+Project\ManagerBundle\Entity\Task:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: string
+            length: 255
+        type:
+            type: string
+            lenght: 255
+            columnDefinition: ENUM ('DEV','Testeur','Integrateur')
+
+    manyToOne:
+        project:
+            targetEntity: Project
+            inversedBy: tasks
+            joinColumn:
+               name: project_id
+               referencedColumnName: id
+    manyToOne:
+        taskPriority:
+            targetEntity: TaskPriority
+            inversedBy: tasks
+
+
+
+    oneToOne:
+        user:
+            targetEntity: Application\Sonata\UserBundle\Entity\User
+            cascade: ["all"]
+            joinColumn:
+               name: user_id
+               referencedColumnName: id
+               fetch: EAGER
+
+    lifecycleCallbacks: {  }

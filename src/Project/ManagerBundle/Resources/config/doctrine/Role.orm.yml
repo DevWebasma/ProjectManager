@@ -1,0 +1,28 @@
+Project\ManagerBundle\Entity\Role:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            columnDefinition: ENUM ('Developpeur','Integrateur','Testeur','designer')
+
+        description:
+            type: text
+
+    oneToOne:
+        user:
+            targetEntity: Application\Sonata\UserBundle\Entity\User
+            cascade: ["all"]
+            joinColumn:
+               name: user_id
+               referencedColumnName: id
+               fetch: EAGER
+
+    lifecycleCallbacks: {  }
